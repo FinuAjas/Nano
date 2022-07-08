@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<!--   03:20:39 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Nano</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+
+    
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+    <!-- CSS 
+    ========================= -->
+
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+    {% block content %}
+
+   
+
+    {% endblock %}
+    {% include 'footer.html' %}
+
+</body>
+
+<!-- Plugins JS -->
+<script src="{% static 'js/plugins.js' %}"></script>
+
+<!-- Main JS -->
+<script src="{% static 'js/main.js' %}"></script>
+
+
+
+</body>
+
+<!--   03:22:07 GMT -->
+
+</html>

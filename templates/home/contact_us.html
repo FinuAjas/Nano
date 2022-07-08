@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="account">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="account-contents">
+                    <div class="row">
+                        <div style="background-color: black;" class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
+                            <div style="background-color: black;" class="account-thumb">
+                                <h2>Contact us</h2>
+                                <p>Nano with a mission "Healthifying Humans" aims at being the platform for innovation
+                                  and constant improvement through continious feedback from customers serves as proving
+                                  grounds for us to re-create excellence on new terms. The results are our new ranges created
+                                  with processes that combine the value of design with the charm of craftsmanship.</p>
+                            </div>
+                        </div>
+                        <div style="background-color: black;" class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
+                            <div class="account-content">
+                                <form id="submit-form" action="">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="single-acc-field">
+                                                <label style="color: black;" for="name">Name</label>
+                                                <input type="text" placeholder="Name" id="name" name="name" required>
+                                                <p style="color: red;" id="error1"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="single-acc-field">
+                                                <label style="color: black; for="email">Email</label>
+                                                <input type="email" placeholder="Email" id="email" name="email" required>
+                                                <p style="color: red;" id="error2"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="single-acc-field">
+                                                <label style="color: black; for="subject">Subject</label>
+                                                <input type="text" placeholder="Subject" id="subject" name="subject" required>
+                                                <p style="color: red;" id="error3"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="single-acc-field">
+                                                <label style="color: black; for="message">Message</label>
+                                                <textarea name="message" placeholder="Type you'r message here"
+                                                    id="message" rows="4" required></textarea>
+                                                    <p style="color: red;" id="error4"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="single-acc-field">
+                                        <button style="background-color: black;" type="submit">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+    //----------------------Form validation-------------------------------------//
+  
+  
+  
+    let checkname = false;
+    let checkemail = false;
+    let checksubject = false;
+    let checkmessage = false;
+  
+  
+    function checkname1() {
+      let namevalue = $("#name").val()
+      let nameRegex = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/;
+      if (namevalue == "") {
+        $("#error1").html("Name is mandatory!")
+      }
+      else if (namevalue.length < 3 || namevalue.length > 20) {
+        checkname = true
+        $("#error1").html("Please enter valid name")
+      }
+      else if (namevalue.match(nameRegex)) {
+        checkname = true
+        $("#error1").html("")
+      }
+    }
+  
+    function checkemail1() {
+      let emailvalue = $("#email").val()
+      let emailRegex = /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
+      if (emailvalue == "") {
+        $("#error2").html("Email is mandatory!")
+      }
+      else if (emailvalue.match(emailRegex)) {
+        checkemail = true
+        $("#error2").html("")
+      }
+      else {
+        $("#error2").html("Invalid email!")
+        checkemail = false
+      }
+    }
+    $('#email').keypress(function (email) {
+      if (email.which === 32)
+        return false;
+    });
+  
+  
+    function checksubject1() {
+      let subjectvalue = $("#subject").val()
+      let subjectRegex = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/;
+      if (subjectvalue == "") {
+        $("#error3").html("Please enter a Subject!")
+      }
+      else if (subjectvalue.length < 10 || subjectvalue.length > 50) {
+        checksubject = true
+        $("#error3").html("Minimun 10 letters please!")
+      }
+      else if (subjectvalue.match(subjectRegex)) {
+        checksubject = true
+        $("#error3").html("")
+      }
+    }
+  
+  
+    function checkmessage1() {
+      let messagevalue = $("#message").val()
+      let messageRegex = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/;
+      if (messagevalue == "") {
+        $("#error4").html("Please Enter a Message!")
+      }
+      else if (messagevalue.match(messageRegex)) {
+        checkmessage = true
+        $("#error4").html("")
+      }
+      else {
+        $("#error4").html("")
+        checkmessage = false
+      }
+  
+    }
+  
+    $('#name').keypress(function (event) {
+      if (
+        !event.key.match(/^[A-Za-z ]+$/) ||
+        (this.value.slice(-1) == ' ' && event.key == ' ') ||
+        (this.value == '' && event.key == ' ')
+      ) {
+        event.preventDefault()
+      }
+    })
+  
+  
+    $(document).ready(function () {
+      $("#name").keyup(function () {
+        checkname1()
+      })
+  
+      $("#email").keyup(function () {
+        checkemail1()
+      })
+  
+      $("#subject").keyup(function () {
+        checksubject1()
+      })
+      $("#message").keyup(function () {
+        checkmessage1()
+      })
+  
+    });
+  
+  </script>
+
+<script>
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbxeNBMnLLVqSGSwSTZZKSniN1FqSyd0sOC2L9EbyGR2BnOe4nx6/exec",
+            data:$("#submit-form").serialize(),
+            method:"POST",
+            success:function (response){
+                alert("Form submitted successfully")
+                window.location.reload()
+                window.location.href="/"
+            },
+            error:function (err){
+                alert("Something Error")
+  
+            }
+        })
+    })
+  </script>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--slider area start-->
+<section class="slider_section d-flex align-items-center" data-bgimg="/static/img/slider/slider.png">
+    <div class="slider_area owl-carousel">
+        {% for banner in banners %}
+        <div class="single_slider d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-md-6">
+                        <div class="slider_content">
+                            <h1>{{ banner.banner_mainhead }}</h1>
+                            <h2>{{ banner.banner_subhead }}</h2>
+                            <a class="button" href="{% url 'download_pdf' %}">Download Catalogue</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-6">
+                        <div class="slider_content">
+                            <img src="{{ banner.banner_image.url }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!--slider area end-->
+
+<!--category-->
+<section class="pt-60">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="section-title">
+                    <h2 style="font-size: 35px;">Our Products</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row blog_wrapper">
+            {% for category in categories %}
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                <article class="single_blog mb-60">
+                    <figure>
+                        <div class="blog_thumb">
+                            <a href="{{ category.get_url }}"><img style="width: 270px; height: 250px;" src="{{ category.cat_images.url }}" alt=""></a>
+                        </div>
+                        <figcaption class="blog_content">
+                            <h3><a href="{{ category.get_url }}">{{ category.category }}</a></h3>
+                            <div class="blog_desc">
+                                <p style="min-height: 130px; max-width: 200px;">{{ category.description }}</p>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <a style="background-color: black;" class="btn btn-primary active" href="{% url 'products' %}">View All
+                    Products</a>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/category-->
+
+{% endblock %}

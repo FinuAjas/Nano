@@ -1,0 +1,78 @@
+{% load static %}
+
+<!--footer area start-->
+<footer class="footer_widgets" >
+    <div class="footer_top" style="background-color:#808080 !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="widgets_container contact_us">
+                        <div class="footer_logo">
+                            <a href="#"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
+                        </div>
+                        <div class="footer_contact">
+                            <p>Nano ceramics with a mission "Healthifying Humans" aims at being  the platform for innovation and constant improvement through continious feedback from customers serves as proving grounds for us to re-create excellence on new terms. The results are our new ranges created with processes that combine the value of design with the charm of craftsmanship.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="widgets_container widget_menu">
+                        <h3>Information</h3>
+                        <div class="footer_menu">
+                            <ul>
+                                <li><a href="{% url 'about_us' %}">About Us</a></li>
+                                <li><a href="{% url 'download_pdf' %}">Download Catalogue</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Our Locations</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="widgets_container newsletter">
+                        <h3>Follow Us</h3>
+                        <div class="footer_social_link">
+                            <ul>
+                                <!-- <li><a class="facebook" href="#" title="Facebook"><i style="color: black;" class="fa fa-facebook"></i></a>
+                                </li> -->
+                                <li><a class="linkedin" href="https://www.linkedin.com/company/nano-ceramics" target="_blank" title="Linkedin"><i style="color: black;" class="fa fa-linkedin"></i></a>
+                                </li>
+                                <li><a class="instagram" href="https://www.instagram.com/nanoceramics.ae" target="_blank" title="Instagram"><i style="color: black;" class="fa fa-instagram"></i></a>
+                                </li>
+                                <li><a class="twitter" href="https://twitter.com/nano_ceramics" target="_blank" title="Twitter"><i style="color: black;" class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="subscribe_form">
+                            <h3>Join Our Newsletter Now</h3>
+                            <form id="mc-form" class="mc-form footer-newsletter">
+                                <input id="mc-email" type="email" autocomplete="off"
+                                    placeholder="Your email address..." />
+                                <button style="background-color: black !important;" id="mc-submit">Subscribe</button>
+                            </form>
+                            <!-- mailchimp-alerts Start -->
+                            <div class="mailchimp-alerts text-centre">
+                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                            </div><!-- mailchimp-alerts end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom" style="background-color: rgb(2, 2, 2) !important;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="copyright_area">
+                        <p>Powered by<a style="font-weight: bolder;" href="http://www.finuajas.com/" target="_blank"> www.finuajas.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer area end-->
